@@ -1,15 +1,15 @@
-import { Button, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Text } from "@chakra-ui/react";
 
-export default function Header ({user, logout}){ 
+export default function Header ({user, logout, isLoggingOut}){ 
     return(
       <header>
-          <Flex bgGradient="linear(to-l, #7928CA, #FF0080)">
+          <Flex color="white" bgGradient="linear(to-l,purple.500, pink.300)" justifyContent="space-between" px="10" py="6" >
               <Center>
-                  <Text>My wallet Dashboard</Text>
+                  <Text fontSize="xl" fontWeight="bold">My wallet Dashboard</Text>
               </Center>
               <Center>
                   <Text>{user.getUsername()}</Text>
-                  <Button colorScheme="red" onClick={logout}>Logout</Button>
+                  <Button ml="4" colorScheme="red"  onClick={logout} disable={isLoggingOut}>Logout</Button>
               </Center>
           </Flex>
       </header>

@@ -1,10 +1,10 @@
-import { Button, Flex , Text } from "@chakra-ui/react"
+import { Button, Flex , Text, Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react"
 import Head from "next/head"
 import { useMoralis } from "react-moralis"
 import Header from "../components/Header"
 
 export default function Home() {
-const {isAuthenticated, authenticate, user, logout} = useMoralis()
+const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
  if(!isAuthenticated){
    return(
      <>
@@ -43,8 +43,28 @@ const {isAuthenticated, authenticate, user, logout} = useMoralis()
     <Head>
       <title>Dashboard wallet</title>
     </Head>
-    <Flex>
-      <Header user={user} logout={logout}></Header>
+    <Flex direction="column"  width="100vw" height="100vh">
+      <Header user={user} logout={logout} isLoggingOut={isLoggingOut}></Header>
+      <Box flex="1" bg="purple.100" px="44" py="20">
+      <Tabs size="lg" colorScheme="purple" align="center" variant="enclosed">
+        <TabList>
+          <Tab fontWeight="bold">Profile</Tab>
+          <Tab fontWeight="bold">Balance</Tab>
+          <Tab fontWeight="bold">Transactions</Tab>
+          <Tab fontWeight="bold">NFTS</Tab>
+          <Tab fontWeight="bold">Send ETH</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Profile</TabPanel>
+          <TabPanel>Balance</TabPanel>
+          <TabPanel>Transactions</TabPanel>
+          <TabPanel>NFTS</TabPanel>
+          <TabPanel>Send ETH</TabPanel>
+
+        </TabPanels>
+      </Tabs>
+      </Box>
+
     </Flex>
     </>
   )
