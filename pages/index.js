@@ -4,6 +4,7 @@ import { useMoralis } from "react-moralis"
 import Balance from "../components/Balance"
 import Header from "../components/Header"
 import Profile from "../components/Profile"
+import Transactions from "../components/Transactions"
 
 export default function Home() {
 const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
@@ -63,7 +64,9 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
           <TabPanel>
             <Balance user={user}></Balance>
           </TabPanel>
-          <TabPanel>Transactions</TabPanel>
+          <TabPanel>
+            <Transactions user={user}></Transactions>
+          </TabPanel>
           <TabPanel>NFTS</TabPanel>
           <TabPanel>Send ETH</TabPanel>
 
