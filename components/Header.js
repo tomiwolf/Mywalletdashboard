@@ -9,7 +9,7 @@ export default function Header ({user, logout, isLoggingOut}){
               </Center>
               <Center>
                   <Text>{user.getUsername()}</Text>
-                  <Button ml="4" colorScheme="red"  onClick={logout} disable={isLoggingOut}>Logout</Button>
+                  <Button ml="4" colorScheme="red"  onClick={logout} disabled={isLoggingOut}>Logout</Button>
               </Center>
           </Flex>
       </header>

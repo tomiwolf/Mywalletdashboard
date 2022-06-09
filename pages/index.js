@@ -61,7 +61,7 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
             <Profile user={user} ></Profile>
           </TabPanel>
           <TabPanel>
-            <Balance></Balance>
+            <Balance user={user}></Balance>
           </TabPanel>
           <TabPanel>Transactions</TabPanel>
           <TabPanel>NFTS</TabPanel>
