@@ -5,6 +5,7 @@ import Balance from "../components/Balance"
 import Header from "../components/Header"
 import Nft from "../components/Nft"
 import Profile from "../components/Profile"
+import Send from "../components/Send"
 import Transactions from "../components/Transactions"
 
 export default function Home() {
@@ -71,7 +72,9 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
           <TabPanel>
             <Nft user={user}></Nft>
           </TabPanel>
-          <TabPanel>Send ETH</TabPanel>
+          <TabPanel>
+            <Send user={user}></Send>
+          </TabPanel>
 
         </TabPanels>
       </Tabs>
