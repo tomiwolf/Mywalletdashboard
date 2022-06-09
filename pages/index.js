@@ -1,7 +1,9 @@
 import { Button, Flex , Text, Box, Tabs, TabList, Tab, TabPanel, TabPanels } from "@chakra-ui/react"
 import Head from "next/head"
 import { useMoralis } from "react-moralis"
+import Balance from "../components/Balance"
 import Header from "../components/Header"
+import Profile from "../components/Profile"
 
 export default function Home() {
 const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
@@ -55,8 +57,12 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
           <Tab fontWeight="bold">Send ETH</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>Profile</TabPanel>
-          <TabPanel>Balance</TabPanel>
+          <TabPanel>
+            <Profile user={user} ></Profile>
+          </TabPanel>
+          <TabPanel>
+            <Balance></Balance>
+          </TabPanel>
           <TabPanel>Transactions</TabPanel>
           <TabPanel>NFTS</TabPanel>
           <TabPanel>Send ETH</TabPanel>
