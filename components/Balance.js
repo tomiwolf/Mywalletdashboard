@@ -1,5 +1,5 @@
 import { Button, Divider, Text } from "@chakra-ui/react";
-import { useERC20Balances, useMoralisWeb3Api } from "react-moralis";
+import { useERC20Balances,useMoralisWeb3Api, useNativeBalance } from "react-moralis";
 import { useEffect, useState } from "react";
 import Customcontainer from "./CustomContainer";
 import Moralis from "moralis";
@@ -8,14 +8,16 @@ import Moralis from "moralis";
 export default function Balance ({user}){
 
     const Web3Api = useMoralisWeb3Api()
+
     const {fetchERC20Balances, data} = useERC20Balances()
 
     const [ethBalance, setEthBalance]= useState(0)
+
     const fetchNativeBalance = async()=>{
         const result = await Web3Api.account.getNativeBalance({
             chain: "rinkeby",
             address: user.get('ethAddress')
-        }).catch(e => console.log(e))
+        })
         if(result.balance){
             setEthBalance(Moralis.Units.FromWei(result.balance))
         }

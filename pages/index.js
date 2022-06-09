@@ -3,6 +3,7 @@ import Head from "next/head"
 import { useMoralis } from "react-moralis"
 import Balance from "../components/Balance"
 import Header from "../components/Header"
+import Nft from "../components/Nft"
 import Profile from "../components/Profile"
 import Transactions from "../components/Transactions"
 
@@ -67,7 +68,9 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
           <TabPanel>
             <Transactions user={user}></Transactions>
           </TabPanel>
-          <TabPanel>NFTS</TabPanel>
+          <TabPanel>
+            <Nft user={user}></Nft>
+          </TabPanel>
           <TabPanel>Send ETH</TabPanel>
 
         </TabPanels>
