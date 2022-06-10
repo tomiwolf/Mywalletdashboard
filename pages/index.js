@@ -21,7 +21,7 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
      alignItems="center"
      width="100vw"
      height="100vh"
-     bgGradient="linear(to-br, teal.400, purple.300)"
+     bgGradient="linear(to-br, blue.500, teal.400)"
      >
        <Text
        fontSize="5xl"
@@ -46,12 +46,12 @@ const {isAuthenticated, authenticate, user, logout, isLoggingOut} = useMoralis()
   return (
     <>
     <Head>
-      <title>Dashboard wallet</title>
+      <title>Wallet Dashboard</title>
     </Head>
     <Flex direction="column"  width="100vw" height="100vh">
       <Header user={user} logout={logout} isLoggingOut={isLoggingOut}></Header>
-      <Box flex="1" bg="purple.100" px="44" py="20">
-      <Tabs size="lg" colorScheme="purple" align="center" variant="enclosed">
+      <Box flex="1" bgGradient="linear(to-l,purple.500, teal.300)" px="44" py="20">
+      <Tabs size="lg" colorScheme="Purple.800" align="center" variant="enclosed">
         <TabList>
           <Tab fontWeight="bold">Profile</Tab>
           <Tab fontWeight="bold">Balance</Tab>
